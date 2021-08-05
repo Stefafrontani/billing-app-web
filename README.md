@@ -6,4 +6,4 @@ billing-app web client
 
 ## Branch Naming
 
-Same as billing-app/README.md
+Same as billing-app/README.md.
