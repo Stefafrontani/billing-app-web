@@ -1,6 +1,6 @@
 FROM node:alpine
 ENV CI=true
-WORKDIR /billing-app-web
+WORKDIR /webapp
 COPY ./package.json .
 COPY ./package-lock.json .
 RUN npm install
