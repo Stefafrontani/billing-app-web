@@ -1,0 +1,56 @@
+@import '../../common/styles/mixins.scss';
+
+.newPurchaseView {
+  padding: 20px 40px;
+  max-width: 350px;
+  margin: auto;
+
+  .row {
+    width: 100%;
+    &--columns {
+      display: flex;
+      gap: 15px;
+      flex-flow: row nowrap;
+    }
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+    .field {
+      flex-shrink: 1;
+      flex-basis: 0;
+      text-align: left;
+      width: 100%;
+      label {
+        padding: 10px 0px;
+        @include text;
+      }
+      input {
+        padding: 5px 10px;
+        width: 100%;
+      }
+    }
+    .field--1 {
+      flex-grow: 1;
+    }
+    .field--2 {
+      flex-grow: 2;
+    }
+    .field--3 {
+      flex-grow: 3;
+    }
+    .field--4 {
+      flex-grow: 4;
+    }
+  } 
+  .buttons {
+    button:not([disabled]) {
+      background-color: greenyellow;
+      padding: 10px 15px;
+      border-radius: 15px;
+      background-color: white;
+      box-shadow: 0px 4px 5px 3px rgba(0,0,0,0.28);
+      -webkit-box-shadow: 0px 4px 5px 3px rgba(0,0,0,0.28);
+      -moz-box-shadow: 0px 4px 5px 3px rgba(0,0,0,0.28);
+    }
+  }
+}
