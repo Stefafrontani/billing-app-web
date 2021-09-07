@@ -1,0 +1,42 @@
+@import './variables.scss';
+
+/* MIXINS */
+@mixin heading {
+    color: $color-base;
+    font-size: $fontsize-heading;
+    font-weight: bold;
+}
+
+@mixin subheading {
+  color: $color-base;
+  font-size: $fontsize-subheading;
+  font-weight: 600;
+}
+
+@mixin navigation {
+  color: $color-base;
+  font-size: $fontsize-link;
+}
+
+@mixin iconButton {
+  color: $color-base;
+  font-size: $fontsize-iconButton;
+}
+
+@mixin text {
+    color: $color-base;
+    font-size: $fontsize-text;
+}
+
+@mixin comment {
+    color: $color-base-lighter;
+    font-size: $fontsize-comment;
+}
+
+@mixin responsive($breakpoint) {
+  @if $breakpoint == notmobile {
+    @media only screen and (min-width: 45rem) {
+      @content;
+    }
+  }
+}
