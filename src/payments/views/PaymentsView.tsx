@@ -82,7 +82,7 @@ const PaymentsView = () => {
     getFuturePayments()
   }, [])
   
-  const orderedFuturePayments = orderFuturePaymentsByYearAndMonth(payments)
+  const orderedFuturePayments = orderFuturePaymentsByYearAndMonth(payments) 
 
   return (
     <div data-testid="paymentsViewRoot" className={styles.paymentsView}>
