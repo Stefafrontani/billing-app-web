@@ -24,7 +24,7 @@ beforeEach(() => {
 test('render Homeview', async () => {
   render(<BrowserRouter><HomeView /></BrowserRouter>)
 
-  const homeViewRoot = await screen.findByTestId('homeViewRoot')
+  const homeViewRoot = await screen.findByTestId('homeViewRoott')
   expect(homeViewRoot).toBeDefined()
 })
 
