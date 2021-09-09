@@ -26,6 +26,7 @@ test('render Homeview', async () => {
 })
 
 test('Navigate to PaymentsView', async () => {
+  mockFetch({})
   render(<BrowserRouter><App /></BrowserRouter>)
 
   const goToPaymentsLink = await screen.findByTestId(/navigateToPaymentsView/i);
@@ -38,6 +39,7 @@ test('Navigate to PaymentsView', async () => {
 })
 
 test('Navigate to NewPurchase', async () => {
+  mockFetch({})
   render(<BrowserRouter><App /></BrowserRouter>)
   const goToNewPurchaseView = await screen.findByTestId(/navigateToNewPurchaseView/i);  
 
