@@ -49,24 +49,24 @@ const HomeView = () => {
   return (
     isLoadingPayments
     ? <p>Loading...</p>
-    : <div className={styles.homeView}>
+    : <div data-testid="homeViewRoot" className={styles.homeView}>
         <div className={styles.totals}>
           {
             (paid !== 0 && unpaid !== 0) 
               ? <div className={styles.totals__amounts}>
-                <span className={styles.amounts__futurePayments}>$ {unpaid}</span>
+                <span data-testid="totalUnpaidAmount" className={styles.amounts__futurePayments}>$ {unpaid}</span>
                 <span className={styles.amounts__bar}> / </span>
-                <span className={styles.amounts__totalDebt}>$ {unpaid + paid}</span>
+                <span data-testid="totalPurchasedAmount" className={styles.amounts__totalDebt}>$ {unpaid + paid}</span>
               </div>
               : null
           }
           <div className={styles.totals__details}>
-            <Link to="payments">Ver detalle</Link>
+            <Link data-testid="navigateToPaymentsView" to="/payments">Ver detalle</Link>
           </div>
         </div>
         <footer className={styles.footer}>
           <nav>
-            <Link to="/new-purchase"><button>+</button></Link>
+            <Link data-testid="navigateToNewPurchaseView" to="/new-purchase"><button>+</button></Link>
           </nav>
         </footer>
       </div>

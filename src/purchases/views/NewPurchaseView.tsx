@@ -52,7 +52,6 @@ const NewPurchaseView = () => {
           history.push('/payments')
         })
     }
-
   }
 
   const checkValidForm = () => {
@@ -62,17 +61,17 @@ const NewPurchaseView = () => {
   const isValidForm = checkValidForm();
 
   return (
-    <div className={styles.newPurchaseView}>
+    <div data-testid="newPurchaseViewRoot" className={styles.newPurchaseView}>
       <div className={styles.row}>
         <div className={styles.field}>
           <label htmlFor="purchase-boughtAt">Fecha: </label>
           <input onChange={handleFieldOnChange} type="date" id="purchase-boughtAt" name="boughtAt" />
         </div>
       </div>
-      
+
       <div className={styles.row}>
         <div className={styles.field}>
-          <label htmlFor="purchase-description">Descripción:</label>
+          <label htmlFor="purchase-description">Descripción: </label>
           <input onChange={handleFieldOnChange} type="text" id="purchase-description" name="description"/>
         </div>
       </div>
@@ -89,7 +88,7 @@ const NewPurchaseView = () => {
       </div>
       
       <div className={styles.buttons}>
-        <button onClick={createNewPurhcase} disabled={isLoadingPurchaseCreation || !isValidForm}>CRATE NEW PURCHASE</button>
+        <button data-testid="newPurchaseFormButton" onClick={createNewPurhcase} disabled={isLoadingPurchaseCreation || !isValidForm}>CRATE NEW PURCHASE</button>
       </div>
     </div>
   )

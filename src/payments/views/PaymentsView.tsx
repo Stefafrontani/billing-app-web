@@ -82,7 +82,7 @@ const PaymentsView = () => {
   const orderedFuturePayments = orderFuturePaymentsByYearAndMonth(payments)
 
   return (
-    <div className={styles.paymentsView}>
+    <div data-testid="paymentsViewRoot" className={styles.paymentsView}>
       {!isLoadingPayments
         ? orderedFuturePayments 
           ? <section className={styles.content}>
@@ -90,7 +90,7 @@ const PaymentsView = () => {
               {Object.keys(orderedFuturePayments).map((key, index) => {
                 const paymentsByMonthAndYear = orderedFuturePayments[key];
                 return (
-                  <li key={index} className={styles.monthPayment}>
+                  <li data-testid={`monthPayments--${key}`} key={index} className={styles.monthPayment}>
                     <p className={styles.paymentsTitle}>{`${paymentsByMonthAndYear.expirationDate.month} (${paymentsByMonthAndYear.expirationDate.year})`}<span>$ {Math.round(paymentsByMonthAndYear.totalAmount)}</span></p>
                     <ul className={styles.paymentsList}>
                       {paymentsByMonthAndYear.payments.map((payment, index) => {
