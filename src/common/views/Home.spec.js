@@ -3,20 +3,23 @@ import HomeView from './HomeView';
 import App from '../../common/components/App/App';
 import { BrowserRouter } from "react-router-dom";
 import userEvent from '@testing-library/user-event'
-import { cleanup, render, screen, waitFor } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
+
+let mockFetch;
 
 beforeEach(() => {
-  delete window.location;
-  window.location = new URL('http://localhost/');
-});
-
-const mockFetch = (resolveValue) => {
-  global.fetch = jest.fn(() => {
-    return Promise.resolve({
-      json: () => Promise.resolve(resolveValue)
+  mockFetch = (resolveValue) => {
+    global.fetch = jest.fn(() => {
+      return Promise.resolve({
+        json: () => Promise.resolve(resolveValue)
       })
     })
   }
+  mockFetch({});
+
+  delete window.location;
+  window.location = new URL('http://localhost/');
+})
   
 test('render Homeview', async () => {
   render(<BrowserRouter><HomeView /></BrowserRouter>)

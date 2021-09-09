@@ -6,13 +6,18 @@ import userEvent from '@testing-library/user-event';
 
 import { createBrowserHistory } from 'history'
 
-const mockFetch = (resolveValue) => {
-  global.fetch = jest.fn(() => {
-    return Promise.resolve({
-      json: () => Promise.resolve(resolveValue)
+let mockFetch;
+
+beforeEach(() => {
+  mockFetch = (resolveValue) => {
+    global.fetch = jest.fn(() => {
+      return Promise.resolve({
+        json: () => Promise.resolve(resolveValue)
       })
     })
   }
+  mockFetch({});
+})
 
 test('render NewPurchaseView', () => {
   render(<BrowserRouter><NewPurchaseView /></BrowserRouter>)
