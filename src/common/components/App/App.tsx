@@ -16,14 +16,14 @@ function App() {
     <div className="App">
       <AppContainer>
         <Switch>
+          <Route exact path="/">
+            <HomeView />
+          </Route>
           <Route path="/new-purchase">
             <NewPurchaseView />
           </Route>
           <Route path="/payments">
             <PaymentsView />
-          </Route>
-          <Route exact path="/">
-            <HomeView />
           </Route>
         </Switch>
       </AppContainer>
