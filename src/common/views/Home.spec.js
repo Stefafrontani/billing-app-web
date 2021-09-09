@@ -80,7 +80,7 @@ test('Show total unpaid payments amount', async () => {
       totalFees: 3
     }
   ]
-  const resolveValue = { expiredPayments: mockedExpiredPayments, upcomingPayments: mockedUpcomingPayments }
+  const resolveValue = { expiredPayments: mockedExpiredPayments, upcomingPayments: mockedUpcomingPayments  }
   
   mockFetch(resolveValue);
   
