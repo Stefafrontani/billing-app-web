@@ -26,7 +26,10 @@ interface PaymentsByMonth {
   }
 }
 
-const orderFuturePaymentsByYearAndMonth = (futurePayments: IPayment[]): PaymentsByMonth => {
+const orderFuturePaymentsByYearAndMonth = (futurePayments: IPayment[]): PaymentsByMonth | null => {
+  if (!futurePayments || !futurePayments.length) {
+    return null;
+  }
   return futurePayments.reduce((acc: PaymentsByMonth, payment) => {
     const expirationDate = new Date(payment.expirationDate);
     const expirationMonth = expirationDate.getUTCMonth();
@@ -79,7 +82,7 @@ const PaymentsView = () => {
     getFuturePayments()
   }, [])
   
-  const orderedFuturePayments = orderFuturePaymentsByYearAndMonth(payments)
+  const orderedFuturePayments = orderFuturePaymentsByYearAndMonth(payments) 
 
   return (
     <div data-testid="paymentsViewRoot" className={styles.paymentsView}>

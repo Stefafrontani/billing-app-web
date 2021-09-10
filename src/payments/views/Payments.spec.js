@@ -3,13 +3,18 @@ import PaymentsView from './PaymentsView';
 import { BrowserRouter } from "react-router-dom";
 import { render, screen } from '@testing-library/react'
 
-const mockFetch = (resolveValue) => {
-  global.fetch = jest.fn(() => {
-    return Promise.resolve({
-      json: () => Promise.resolve(resolveValue)
+let mockFetch;
+
+beforeEach(() => {
+  mockFetch = (resolveValue) => {
+    global.fetch = jest.fn(() => {
+      return Promise.resolve({
+        json: () => Promise.resolve(resolveValue)
+        })
       })
-    })
-  }
+    }
+  mockFetch({});
+})
 
 test('render PaymentsView', () => {
   render(<BrowserRouter><PaymentsView /></BrowserRouter>)
