@@ -61,7 +61,7 @@ const HomeView = () => {
               : null
           }
           <div className={styles.totals__details}>
-            <Link data-testid="navigateToPaymentsView" to="/payments">Ver detalle</Link>
+            <Link data-testid="navigateToPaymentsView" to="/payments">Ver detalles</Link>
           </div>
         </div>
         <footer className={styles.footer}>
